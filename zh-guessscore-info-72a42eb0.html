@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zh-guessscore · 足球竞猜信息站</title>
+  <style>
+    /* reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f2f4f7;
+      color: #1e293b;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* cards & shadow */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e9edf2;
+      padding: 2rem 2rem 2.2rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    /* hero 主视觉 */
+    .hero {
+      text-align: center;
+      padding: 2.8rem 1rem 2.4rem;
+      background: #eef1f6;
+      border-radius: 32px;
+      margin-bottom: 2.4rem;
+      border: 1px solid #dce2ea;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0f2341;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1.15rem;
+      color: #3e506b;
+      max-width: 640px;
+      margin: 0 auto 0.8rem;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: #d7dfe9;
+      color: #1f344d;
+      font-size: 0.9rem;
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      margin-top: 0.2rem;
+    }
+
+    /* 网格系统 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin: 2.4rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .card {
+        padding: 1.6rem 1.4rem;
+      }
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+    }
+
+    /* 卡片内元素 */
+    .card h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #172b45;
+      border-left: 4px solid #8193ab;
+      padding-left: 0.7rem;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 1.2rem 0 0.4rem;
+      color: #2a3e5a;
+    }
+
+    .card p {
+      margin-bottom: 0.8rem;
+      color: #2b3d55;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0.25rem;
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 1.7rem;
+      margin-bottom: 0.7rem;
+      color: #1f334d;
+    }
+
+    .card ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #7085a1;
+      font-weight: bold;
+    }
+
+    .faq-item {
+      margin-top: 1rem;
+      background: #f7f9fc;
+      padding: 1rem 1.3rem;
+      border-radius: 14px;
+      border: 1px solid #e5eaf0;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      color: #1d314b;
+    }
+
+    .faq-item p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    .link-sentence {
+      background: #fafbfd;
+      padding: 1.4rem 1.8rem;
+      border-radius: 18px;
+      margin: 2rem 0 1.2rem;
+      border: 1px solid #e2e8f0;
+      font-size: 1.05rem;
+    }
+
+    a {
+      color: #2a5a8c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #2a5a8c;
+      color: #143c66;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #65758b;
+      border-top: 1px solid #dce2ea;
+      padding-top: 2rem;
+      margin-top: 2.8rem;
+    }
+
+    .pill {
+      display: inline-block;
+      background: #e7ecf3;
+      border-radius: 50px;
+      padding: 0.2rem 1rem;
+      font-size: 0.75rem;
+      color: #1f3c5c;
+      margin-right: 0.3rem;
+      font-weight: 500;
+    }
+
+    .space-y-1 { margin-bottom: 0.6rem; }
+
+    .meta-note {
+      color: #4d617b;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO 主视觉 -->
+  <div class="hero">
+    <h1>⚽ 猜球 · 聊球 · 懂球</h1>
+    <p class="sub">聚焦足球竞猜的实用信息站点 —— 不做预测，只做客观的规则与数据梳理。</p>
+    <span class="tagline">⚡ 竞猜基础 · 可信说明 · 玩法速览</span>
+  </div>
+
+  <!-- 信息卡片网格：用途 + 适合人群 -->
+  <div class="card-grid">
+    <!-- 用途 / 站点介绍卡片 -->
+    <div class="card">
+      <h2>📍 站点介绍与可信说明</h2>
+      <p><strong>zh-guessscore.com</strong> 是一个围绕足球竞猜场景的信息整理站。我们不提供博彩入口，也不作任何奖金承诺，而是从规则科普、常见术语、数据参考等角度，帮助对竞猜感兴趣的普通球迷建立基本认知。</p>
+      <p>所有内容均来自公开赛事数据与通用竞猜逻辑，不含诱导性话术。信息更新频率稳定，适合作为查询与对照的轻量参考。</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="pill">规则释义</span>
+        <span class="pill">指数常识</span>
+        <span class="pill">赛前贴士</span>
+      </div>
+    </div>
+
+    <!-- 适合人群卡片 -->
+    <div class="card">
+      <h2>👥 适合什么样的人？</h2>
+      <ul>
+        <li><strong>新手球迷</strong> — 刚接触足球竞猜，想弄懂盘口、让球、大小分等基础概念。</li>
+        <li><strong>理性玩家</strong> — 需要一份干净的规则速查与术语表，不依赖玄学推荐。</li>
+        <li><strong>数据爱好者</strong> — 对往绩、主客场、近期状态等公开信息感兴趣。</li>
+        <li><strong>内容观察者</strong> — 单纯想了解竞猜文化，不参与实际投注。</li>
+      </ul>
+      <p class="meta-note" style="margin-top: 0.8rem;">无论你是哪一类，这里都没有焦虑营销，只有平实的信息。</p>
+    </div>
+  </div>
+
+  <!-- 额外特点卡片（单独一行） -->
+  <div class="card" style="margin-bottom: 2rem;">
+    <h2>🧩 内容特点与场景</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between;">
+      <div style="flex: 1 1 180px;">
+        <h3>📋 竞猜术语表</h3>
+        <p>从「平手盘」到「波胆」，每个条目附带简要场景举例，告别似懂非懂。</p>
+      </div>
+      <div style="flex: 1 1 180px;">
+        <h3>📊 数据可视化参考</h3>
+        <p>用简单图表展示主客场胜率、进球分布等，一眼抓住趋势。</p>
+      </div>
+      <div style="flex: 1 1 180px;">
+        <h3>🧾 玩法格式说明</h3>
+        <p>胜平负、让球、总进球、半全场……不同玩法对应什么数字，逐一拆解。</p>
+      </div>
+    </div>
+    <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #3d5470;">✔ 所有内容均不构成投注建议，仅作为知识性阅读。</p>
+  </div>
+
+  <!-- 自然链接段落 (必须包含“足球竞猜”链接) -->
+  <div class="link-sentence">
+    <p style="margin-bottom: 0.2rem;">🔗 如果你对上述内容感兴趣，或者想查阅更完整的竞猜术语与规则，可以直接前往 <a href="https://zh-guessscore.com">足球竞猜</a> 信息页面，那里有更细致的分章整理。</p>
+    <p style="margin-top: 0.8rem; color: #3c5470;">站点日常维护者致力于保持信息准确，同时欢迎大家提反馈，帮助完善资料细节。</p>
+  </div>
+
+  <!-- FAQ 摘要卡片 -->
+  <div class="card">
+    <h2>❓ FAQ 摘要 · 你可能想问的</h2>
+    <div class="faq-item">
+      <strong>这个站是推荐我下注吗？</strong>
+      <p>不是。站点只做客观说明与数据展示，没有任何导向性话术，也不嵌入任何投注链接。</p>
+    </div>
+    <div class="faq-item">
+      <strong>内容会频繁更新吗？</strong>
+      <p>主要规则与术语属于长期稳定的内容，数据类板块会随赛季节奏适度更新，保持参考价值。</p>
+    </div>
+    <div class="faq-item">
+      <strong>为什么叫 guessscore？</strong>
+      <p>「guess score」直译是“猜比分”，但站内实际包含胜平负、让球等更丰富的竞猜维度，名称只是代号。</p>
+    </div>
+    <p style="margin-top: 1.2rem; font-size: 0.9rem; color: #4b617e;">📌 更多疑问可以翻阅站内专题页，或通过站内联系方式提出。</p>
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer-note">
+    <p>zh-guessscore.com · 以信息整理为出发点，不构成任何博彩建议。</p>
+    <p style="margin-top: 0.3rem;">阅读即代表理解：竞猜有风险，心态平和不盲从。</p>
+  </div>
+
+</div>
+</body>
+</html>
