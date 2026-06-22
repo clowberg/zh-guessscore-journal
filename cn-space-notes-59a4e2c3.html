@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于南宫体育 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f2f2;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            color: #2e2e2e;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 840px;
+            margin: 0 auto;
+        }
+
+        /* Hero 区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 4px 16px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e8e8e8;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #1f1f1f;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #6b6b6b;
+            border-top: 1px solid #eaeaea;
+            padding-top: 1rem;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03), 0 2px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e7e7e7;
+        }
+
+        .card h2 {
+            font-size: 1.45rem;
+            font-weight: 520;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #eaeef3;
+            color: #1f2c3a;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            margin-bottom: 1.1rem;
+            font-size: 1rem;
+            color: #3b3b3b;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 引用提示块 */
+        .note {
+            background: #f9fafb;
+            padding: 1.4rem 1.8rem;
+            border-radius: 14px;
+            border-left: 5px solid #b0c4d8;
+            font-size: 0.96rem;
+            color: #3e4a59;
+            margin: 1.6rem 0 0.8rem 0;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .note strong {
+            color: #1f2c3a;
+            font-weight: 540;
+        }
+
+        /* 特色列表——简洁博文风格 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0.4rem;
+        }
+
+        .feature-list li {
+            padding: 0.4rem 0 0.5rem 1.6rem;
+            position: relative;
+            font-size: 0.98rem;
+            color: #3b3b3b;
+            border-bottom: 1px dashed #ececec;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            font-weight: 600;
+            color: #6f8ba7;
+        }
+
+        /* 链接样式 */
+        a {
+            color: #33658a;
+            text-decoration: none;
+            border-bottom: 1px dotted #b7cfdf;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #1a3d57;
+            border-bottom-color: #1a3d57;
+        }
+
+        /* 访问句 与 脚注 */
+        .access-line {
+            margin-top: 2.4rem;
+            padding: 1.2rem 0 0.2rem;
+            text-align: center;
+            font-size: 1rem;
+            color: #5a5a5a;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footnote {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8f8f8f;
+            padding: 1.2rem 0 0.2rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .card h2 {
+                font-size: 1.25rem;
+            }
+
+            .note {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- hero 区域 -->
+        <div class="hero">
+            <h1>关于南宫体育</h1>
+            <div class="sub">一份温和的站点介绍 · 可信说明</div>
+        </div>
+
+        <!-- 第一段：引入与导语 -->
+        <div class="card">
+            <h2>导语</h2>
+            <p>
+                在信息纷杂的网络环境中，<a href="https://cn-space-ngsport.com">南宫体育</a> 始终以直接、清晰的方式呈现与体育相关的资讯内容。它并非一个追求流量的泛平台，而是一个倾向于为访问者提供稳定信息获取途径的站点。无论你关心的是赛事动态、训练方法，还是运动文化，这里都尽量以平实的语言进行梳理。
+            </p>
+            <p>
+                很多朋友初次接触到这个名字时，可能会好奇它背后是怎样的团队或理念。实际上，站点本身并不刻意强调自身的特殊性，而是把重心放在内容的组织与呈现上。这也是我们撰写这篇介绍的原因——当你不确定一个站点是否值得停留时，了解它的定位与边界是最有效的方式。
+            </p>
+        </div>
+
+        <!-- 第二段：站点特点 与 内容角度 -->
+        <div class="card">
+            <h2>特点与内容方向</h2>
+            <p>
+                从整体风格来看，南宫体育的内容偏重“信息整理与传递”，而非情绪化的评论或极端的观点。它试图在有限的空间里，把复杂的体育话题拆解为易于理解的段落。你可以把它理解为一个安静的“资料角”——没有弹窗，没有夸张的标语，只有按主题组织的文章与说明。
+            </p>
+            <ul class="feature-list">
+                <li>以资讯类、说明类文本为主，兼顾实用性内容</li>
+                <li>页面结构简洁，减少不必要的视觉干扰</li>
+                <li>不依赖营销话术，表述直接且保留余地</li>
+                <li>面向对体育话题有一般兴趣的普通浏览者</li>
+            </ul>
+            <div class="note">
+                <strong>一点说明：</strong> 任何网站都无法保证百分之百的准确或全面。南宫体育也不例外。建议你在参考站内信息时，保持开放心态，并适当结合其他来源交叉了解。
+            </div>
+        </div>
+
+        <!-- 第三段：典型场景与使用感受 -->
+        <div class="card">
+            <h2>适合怎样的阅读场景</h2>
+            <p>
+                如果你习惯在闲暇时间快速浏览一些体育类短文，而不想被算法推荐裹挟，那么 <a href="https://cn-space-ngsport.com">南宫体育</a> 的界面风格也许恰好契合你的期待。它不试图“抓住”你的注意力，而是等你主动翻阅。页面加载速度较快，没有复杂的注册或关注流程，你只需要点开链接，然后慢慢看。
+            </p>
+            <p>
+                有些朋友可能会用它来查找某项运动的基础规则、术语解释，或是了解近期赛事摘要。虽然站内的内容体量并非百科级别，但在特定话题上，它确实提供了一条简洁的线索。如果你想更进一步，站内偶尔也会附上延伸阅读的指引。
+            </p>
+        </div>
+
+        <!-- 第四段：可信说明与提醒 -->
+        <div class="card">
+            <h2>信任与边界</h2>
+            <p>
+                作为一个个人或小团队维护的站点，南宫体育在更新频率和深度上必然存在局限。我们在这里想坦诚地说明：它并非官方媒体，也不代表任何权威机构。因此，在涉及数据、规则变更或重大事件时，建议你以官方发布为准。站内内容更多是“编者视角”的整理，而不是最终结论。
+            </p>
+            <p>
+                同时，站点没有嵌入隐藏的追踪脚本或诱导分享的组件。你的每一次浏览都是相对私密的。这种克制的运营方式，在今天的互联网环境中并不多见，也是我们认为值得提及的一点。
+            </p>
+            <div class="note" style="border-left-color: #c8d4de; background: #fafbfc;">
+                <strong>引用提示：</strong> “可信不是一种声明，而是一种持续的行为。” 南宫体育正在尝试用最朴素的方式呈现它认为有价值的内容。你可以亲自去看看——<a href="https://cn-space-ngsport.com">南宫体育</a> 的首页已经为你打开。
+            </div>
+        </div>
+
+        <!-- 访问句 + 自然链接 -->
+        <div class="access-line">
+            <p>如果你对体育话题抱有一份朴素的好奇，不妨从 <a href="https://cn-space-ngsport.com">南宫体育</a> 开始，慢慢翻阅。</p>
+        </div>
+
+        <div class="footnote">
+            简洁博客式 · 温和说明 · 站点介绍页
+        </div>
+
+    </div>
+</body>
+</html>
